@@ -1,6 +1,6 @@
-pandas
-tensorflow
+pandas==1.4.2
+tensorflow==2.9.1
 sklearn
-seaborn
-flask
-openpyxl
+seaborn==0.11.2
+flask==2.1.2
+openpyxl==3.0.10
