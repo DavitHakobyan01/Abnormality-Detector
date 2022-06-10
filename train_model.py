@@ -6,10 +6,12 @@ from sklearn.utils import class_weight
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.callbacks import EarlyStopping
 
+
 def get_time():
     import time
     run_id = time.strftime("run_%Y_%m_%d-%H_%M_%S")
     return run_id
+
 
 def train_on_all_data(modelpath):
     X, y = functions.get_sequences_and_targets(functions.get_all_data_for_train())
@@ -31,6 +33,7 @@ def train_on_all_data(modelpath):
     model.evaluate(X_test, y_test)
 
     model.save(f'.\models\{model.name}_{get_time()}')
+
 
 def train(filepath, modelpath):
     X, y = functions.get_sequences_and_targets(functions.get_data_for_train(filepath))
