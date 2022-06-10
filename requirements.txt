@@ -1,7 +1,6 @@
 pandas
 tensorflow
 sklearn
-scikit-learn
 seaborn
 flask
 openpyxl
