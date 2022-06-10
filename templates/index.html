@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Abnormality Detector</title>
+    </head>
+
+    <body>
+        <form method="POST" enctype="multipart/form-data">
+            <label>Select a Model: </label>
+            <select name="model">
+                {% for model in models %}
+                <option value={{ model }}>{{ model }}</option>
+                {% endfor %}
+            </select>
+            <p/>
+            <label>Choose a Datasample: </label>
+            <input name="data-sample" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
+            <input type="submit" value="Predict" style="background-color:blue">
+            <p/>
+            <img src="../static/images/plot.png">
+        </form>
+
+    </body>
+
+</html>
