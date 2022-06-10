@@ -4,11 +4,11 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 plt.switch_backend('agg')
 
+
 def plot_graphs(X, pred):
-
-
     fig = plt.figure(figsize=(8, 5))
     colors = {0: 'blue', 1: 'red'}
     for i in range(len(pred)):
@@ -30,6 +30,7 @@ def test(filepath, modelpath):
         os.mkdir('./predictions')
     df.to_excel(f'./predictions/{os.path.basename(filepath.filename)}')
     plot_graphs(X, pred)
+
 
 def get_predictions_for_excel(pred, X):
     predictions = []
