@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 import os
-import evaluate_model
+import predict
 
 views = Blueprint(__name__, 'views')
 model_list = os.listdir(r'.\models')

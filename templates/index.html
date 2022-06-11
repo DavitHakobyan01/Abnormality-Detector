@@ -22,7 +22,10 @@
             <input type="submit" value="Predict" style="background-color:blue">
             <p/>
             <label style="background-color:black;color:blue">Model is completed</label>
-
+            <p/>
+            <label>Good - {{ 1 - abnormality_prob }}</label>
+            <p/>
+            <label>Abnormality - {{ abnormality_prob }}</label>
             <img src="../static/images/plot.png">
 
         </form>
