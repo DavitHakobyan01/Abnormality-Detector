@@ -22,27 +22,29 @@ def get_data_for_train(filename):
     return df
 
 
-def get_data_for_test(filename):
+def get_data_for_prediction(filename):
     df = pd.read_excel(filename)
-    return df
+    return df['Well Temperature Survey Date'][0], \
+           df[['Well Temperature Survey Profile Measured Depth', 'Well Temperature Survey Temperature']]
 
 
 def get_sequences(df):
-    stages_and_temps = []
-    stages_and_temps_seq = []
 
-    for index, item in df.iterrows():
-        if pd.notna(item['Sample']):
-            if stages_and_temps_seq:
-                stages_and_temps.append(stages_and_temps_seq)
-                stages_and_temps_seq = []
+    # stages_and_temps = []
+    # stages_and_temps_seq = []
+    #
+    # for index, item in df.iterrows():
+    #     if pd.notna(item['Sample']):
+    #         if stages_and_temps_seq:
+    #             stages_and_temps.append(stages_and_temps_seq)
+    #             stages_and_temps_seq = []
+    #
+    #     stages_and_temps_seq.append([item['Stage'], item['Temp']])
+    #     if index == len(df) - 1:
+    #         stages_and_temps.append(stages_and_temps_seq)
 
-        stages_and_temps_seq.append([item['Stage'], item['Temp']])
-        if index == len(df) - 1:
-            stages_and_temps.append(stages_and_temps_seq)
-
-    X_padded = pad_sequences(stages_and_temps, dtype='float32', maxlen=23)
-    return stages_and_temps, X_padded
+    X_padded = pad_sequences(df.values.reshape(1, -1, 2), dtype='float32', maxlen=23)
+    return df, X_padded
 
 
 def get_sequences_and_targets(df):

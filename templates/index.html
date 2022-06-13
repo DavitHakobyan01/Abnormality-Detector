@@ -8,7 +8,7 @@
         <title>Abnormality Detector</title>
     </head>
 
-    <body>
+    <body style="background-color:#B7E2F0">
         <form method="POST" enctype="multipart/form-data">
             <label>Select a Model: </label>
             <select name="model">
@@ -19,14 +19,23 @@
             <p/>
             <label>Choose a Data sample: </label>
             <input name="data-sample" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
-            <input type="submit" value="Predict" style="background-color:blue">
+            <input type="submit" value="Output" style="background-color:#32CD32">
             <p/>
+            {% if button_clicked %}
             <label style="background-color:black;color:blue">Model is completed</label>
-            <p/>
-            <label>Good - {{ 1 - abnormality_prob }}</label>
-            <p/>
-            <label>Abnormality - {{ abnormality_prob }}</label>
+<!--            <p/>-->
+<!--            <label>Good - {{ 1 - abnormality_prob }}</label>-->
+<!--            <p/>-->
+<!--            <label>Abnormality - {{ abnormality_prob }}</label>-->
+            <div>
+                <label>Good - {{ 1.0 - abnormality_prob }}</label>
+                <p/>
+                <label>Abnormality - {{ abnormality_prob }}</label>
+                <p/>
+                <label style="background-color:black;color:white">Date of Survey = {{ date }}</label>
+            </div>
             <img src="../static/images/plot.png">
+            {% endif %}
 
         </form>
 
