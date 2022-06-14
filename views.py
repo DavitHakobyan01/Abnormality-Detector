@@ -5,6 +5,7 @@ import predict
 views = Blueprint(__name__, 'views')
 model_list = os.listdir(r'.\models')
 
+
 @views.route("/")
 def home():
     button_clicked = False
@@ -23,7 +24,3 @@ def predict_button():
                            abnormality_prob=pred,
                            button_clicked=button_clicked,
                            date=date)
-
-
-
-

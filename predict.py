@@ -17,7 +17,7 @@ def plot_graphs(X, prediction):
     plt.close()
 
 
-def predict(filepath, model_path):
+def predict(filepath: object, model_path: str):
     date, df = functions.get_data_for_prediction(filepath)
     X, X_padded = functions.get_sequences(df)
 

@@ -29,20 +29,6 @@ def get_data_for_prediction(filename):
 
 
 def get_sequences(df):
-
-    # stages_and_temps = []
-    # stages_and_temps_seq = []
-    #
-    # for index, item in df.iterrows():
-    #     if pd.notna(item['Sample']):
-    #         if stages_and_temps_seq:
-    #             stages_and_temps.append(stages_and_temps_seq)
-    #             stages_and_temps_seq = []
-    #
-    #     stages_and_temps_seq.append([item['Stage'], item['Temp']])
-    #     if index == len(df) - 1:
-    #         stages_and_temps.append(stages_and_temps_seq)
-
     X_padded = pad_sequences(df.values.reshape(1, -1, 2), dtype='float32', maxlen=23)
     return df, X_padded
 
